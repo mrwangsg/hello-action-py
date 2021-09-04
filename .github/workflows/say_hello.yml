@@ -40,3 +40,6 @@ jobs:
         env:
           JD_Cookie: ${{ secrets.JD_Cookie }}
           JD_Send_Key: ${{ secrets.JD_Send_Key }}
+          JD_Thread: ${{ secrets.JD_Thread }}
+          JD_Min_Bean: ${{ secrets.JD_Min_Bean }}
+          JD_Voucher: ${{ secrets.JD_Voucher }}
