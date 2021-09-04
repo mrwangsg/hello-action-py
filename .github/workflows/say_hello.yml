@@ -37,3 +37,6 @@ jobs:
       - name: Working
         run: |
           python main.py
+        env:
+          JD_Cookie: ${{ secrets.JD_Cookie }}
+          JD_Send_Key: ${{ secrets.JD_Send_Key }}
