@@ -33,7 +33,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requriements.txt
         
-      - name: Say Hello
+      - name:  Send request
         run: |
           python main.py
 
