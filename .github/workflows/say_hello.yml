@@ -22,19 +22,17 @@ jobs:
         with:
           ref: 'master'
 
-      - name: Set up Python 3.9
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
           pip list
-          pwd
-          pip install -r /home/runner/work/hello-action-py/hello-action-py/requirements.txt
+          pip install -r ./requirements.txt
           pip list
 
-      - name: Say Hello
+      - name: Working
         run: |
           python main.py
