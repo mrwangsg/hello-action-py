@@ -4,7 +4,6 @@ on:
     push:
         branches:
             - hello
-    workflow_dispatch: # 手动触发
 
 jobs:
   build:
