@@ -73,4 +73,4 @@ if __name__ == '__main__':
     # 忽略警告
     requests.packages.urllib3.disable_warnings()
     vender_id = get_venderId("840222")
-    print("jd_vender_id: ", vender_id)
+    print("jd_venderId: ", vender_id)
