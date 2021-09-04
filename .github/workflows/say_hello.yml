@@ -34,7 +34,7 @@ jobs:
           pip freeze > requirements.txt
           ls
           pwd
-          pip install -r requriements.txt
+          pip install -r requirements.txt
 
       - name: Say Hello
         run: |
