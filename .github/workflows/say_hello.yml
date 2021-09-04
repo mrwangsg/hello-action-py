@@ -31,7 +31,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          then pip install -r requirements.txt
+          pip install -r requirements.txt
           pip list
 
       - name: Working
