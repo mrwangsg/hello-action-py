@@ -108,9 +108,9 @@ if __name__ == '__main__':
         sys.exit()
     JD_Send_Key = os.environ['JD_Send_Key']
 
-    JD_Thread = os.environ['JD_Thread'] if os.environ['JD_Thread'] else Final.get__thread_num()
-    JD_Min_Bean = os.environ['JD_Min_Bean'] if os.environ['JD_Min_Bean'] else Final.get__min_jd_bean()
-    JD_Voucher = os.environ['JD_Voucher'] if os.environ['JD_Voucher'] else Final.get__voucher()
+    JD_Thread = int(os.environ['JD_Thread']) if os.environ['JD_Thread'] else Final.get__thread_num()
+    JD_Min_Bean = int(os.environ['JD_Min_Bean']) if os.environ['JD_Min_Bean'] else Final.get__min_jd_bean()
+    JD_Voucher = bool(os.environ['JD_Voucher']) if os.environ['JD_Voucher'] else Final.get__voucher()
 
     # 线程安全需要用到锁
     lock = threading.RLock()
