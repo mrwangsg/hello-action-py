@@ -20,7 +20,7 @@ jobs:
       - name: Checkout codes
         uses: actions/checkout@v2
         with:
-          ref: 'master'
+          ref: 'main'
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip list
-          pip install -r ./requirements.txt
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           pip list
 
       - name: Working
