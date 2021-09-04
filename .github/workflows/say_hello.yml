@@ -20,7 +20,7 @@ jobs:
     - name: Checkout codes
       uses: actions/checkout@v2
       with:
-        ref: 'master'
+        ref: 'hello'
         
     - name: Set up Python 3.9
       uses: actions/setup-python@v2
