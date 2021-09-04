@@ -87,10 +87,12 @@ def main():
 
                                                                                process[3], process[1], process[2]))
     if JD_Send_Key:
-        title_msg = "获得京豆：{}个，代金券：{}元".format(process[1], process[2])
+        title_msg = "获得京豆:{}个，代金券:{}元".format(process[1], process[2])
         resp_msg = """
-        # 账号{}，总共尝试{}个店铺，可以获得总京豆数{}。
-        ##     其中符合过滤条件的京豆：共有{}京豆，已经获取。同时获得{}元代金券""".format(username, process[0], process[3], process[1], process[2])
+        # 账号{}，
+        # 总共尝试{}个店铺，可以获得总京豆数{}。
+        ##  其中符合过滤条件：
+        ##    共有{}京豆，以及{}元代金券""".format(username, process[0], process[3], process[1], process[2])
         util.send_result(JD_Send_Key, title_msg, resp_msg)
 
 
@@ -126,12 +128,12 @@ if __name__ == '__main__':
             sys.exit()
 
         main()
-    except Exception:
+    except:
         err_str = traceback.format_exc()
         print(err_str)
 
         if JD_Send_Key:
-            title_msg = "运行异常！获得京豆：{}个，代金券：{}元".format(process[1], process[2])
+            title_msg = "运行异常！获得京豆:{}个，代金券:{}元".format(process[1], process[2])
             util.send_result(JD_Send_Key, err_str)
 
         sys.exit(-1)
