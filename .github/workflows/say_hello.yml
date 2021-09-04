@@ -34,6 +34,7 @@ jobs:
           python -m pip freeze > requirements.txt
           ls
           pwd
+          cat requirements.txt
           python -m pip install -r requirements.txt
           python -m pip list
 
