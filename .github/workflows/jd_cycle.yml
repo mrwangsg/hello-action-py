@@ -2,6 +2,8 @@ name: jd_cycle
 
 on:
   push:
+    branches:
+      - jd_cycle
   workflow_dispatch: # 手动触发
   schedule:
     - cron: '59 11,12,23 * * *' #utc换算北京时间，18:59 19:59 07:59
