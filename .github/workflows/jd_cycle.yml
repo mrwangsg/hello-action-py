@@ -1,0 +1,45 @@
+name: jd_cycle
+
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - jd_cycle
+  workflow_dispatch: # 手动触发
+  schedule:
+    - cron: '59 11,12,23 * * *' #utc换算北京时间，18:59 19:59 07:59
+    
+jobs:
+  build:
+
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        python-version: [ '3.9' ]
+
+    steps:
+      - name: Checkout codes
+        uses: actions/checkout@v2
+        with:
+          ref: 'jd_cycle'
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip list
+
+      - name: Working
+        run: |
+          echo "Hi jd_cycle..."
+        env:
+          JD_Cookie: ${{ secrets.JD_Cookie }}
+          JD_Send_Key: ${{ secrets.JD_Send_Key }}
+          JD_Thread: ${{ secrets.JD_Thread }}
+          JD_Min_Bean: ${{ secrets.JD_Min_Bean }}
+          JD_Voucher: ${{ secrets.JD_Voucher }}
