@@ -8,7 +8,7 @@ on:
       - main
   workflow_dispatch: # 手动触发
   schedule:
-    - cron: '59 11,12,23 * * *' #utc换算北京时间，18:59 19:59 07:59
+    - cron: '59 12,23 * * *' #utc换算北京时间，19:59 07:59
     
 jobs:
   build:
@@ -31,15 +31,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
-          pip list
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Working
         run: |
           python main.py
         env:
           JD_Cookie: ${{ secrets.JD_Cookie }}
-          JD_Send_Key: ${{ secrets.JD_Send_Key }}
-          JD_Thread: ${{ secrets.JD_Thread }}
-          JD_Min_Bean: ${{ secrets.JD_Min_Bean }}
-          JD_Voucher: ${{ secrets.JD_Voucher }}
